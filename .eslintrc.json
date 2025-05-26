@@ -1,0 +1,13 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "react/no-unescaped-entities": "off", // Example: Disable this rule
+    "@next/next/no-img-element": "warn", // Example: Change this rule to a warning
+    "no-console": "warn" // Example: Warn on console.log statements
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the react version
+    }
+  }
+}
