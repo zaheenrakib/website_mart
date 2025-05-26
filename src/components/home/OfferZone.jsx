@@ -20,101 +20,107 @@ const OfferZone = () => {
     <>
     {
       data?.length > 0   && (
-        <div className=" py-12 bg-[#2A2A2A]">        
-            <div className="text-center mb-10">
-              <div className="h-1 w-20 bg-red-600 mx-auto mb-6"></div>
-              <h2 className="text-4xl md:text-5xl text-white font-light mb-6">Offer Zone</h2>
-              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-[#2A2A2A] to-[#2A2A2A]">
+          <div className="container mx-auto px-4 md:px-6">
+            {/* Header Section */}
+            <div className="text-center mb-12 md:mb-16">
+              <div className="h-1 w-20 bg-red-600 mx-auto mb-6 rounded-full"></div>
+              <h2 className="text-4xl md:text-5xl xl:text-6xl text-white font-light mb-6 tracking-wide">
+                Offer Zone
+              </h2>
+              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto px-4">
                 Popular Dishes Of Our Caterers
               </p>
-            </div>          
-            {isLoading ? (
-            // Loader
-              <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[1, 2, 3, 4, 5, 6].map((item, index) => (
-                    <div className="" key={index}>
-                      <div className="flex items-center">
-                        <div className="z-10">
-                          <div className="h-32 w-32 rounded-full bg-gray-700 animate-pulse"></div>
-                        </div>
-                        <div className="text-center border border-[var(--rac-border-color)] bg-[#1d1d1d] rounded-[var(--rac-border-radius)] p-6 relative -ml-24 pl-32">
-                          <div className="space-y-3">
-                            <div className="h-4 bg-gray-700 rounded-full w-32 animate-pulse"></div>
-                            <div className="h-4 bg-gray-700 rounded-full w-24 animate-pulse"></div>
-                          </div>
-                          <div className="mt-4">
-                            <div className="flex gap-2 flex-wrap items-center justify-center">
-                              <div className="h-4 bg-gray-700 rounded-full w-16 animate-pulse"></div>
-                              <div className="h-4 bg-gray-700 rounded-full w-16 animate-pulse"></div>
-                              <div className="h-8 bg-gray-700 rounded-lg w-20 animate-pulse"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              // Data after loading
-              <div className="flex flex-wrap lg:gap-2 gap-4">
-                {data?.map((item, index) => (
-                  <div className="w-[405px]" key={index} title={`${item?.product?.productName}`}>
-                    <div className="flex items-center">
-                      <div className="z-10">
-                        <Image
-                          width={500}
-                          height={500}
-                          src={BASE_URL + item?.product?.image}
-                          alt=""
-                          className="h-32 w-32 rounded-full animate-rotate"
-                        />
-                      </div>
-                      <div className="text-center border border-[var(--rac-border-color)] bg-[#1d1d1d] rounded-[var(--rac-border-radius)] p-6 relative -ml-24 pl-32">
-                        <div className="rac_offer_text">
-                          <Link 
-                          
-                          href={`/products/${item?.product?.slug}`}
-                          >
-                            <h2 className="text-sm lg:text-lg w-40 truncate ">
+            </div>
 
-                              {item?.product?.productName}
-                            </h2>
-                          </Link>
-                        </div>
-                        <div>
-                          <div className="flex gap-2 flex-wrap items-center justify-center">
-                            <h4 className="text-sm lg:text-lg">
-                              <del>৳{item?.product?.salesPrice} </del>
-                            </h4>
-                            <h4>৳{item?.offerPrice}</h4>
-                            <button
-                              onClick={() =>
-                                addToCart({
-                                  id: item?.product?.id,
-                                  price: item?.offerPrice,
-                                  productName: item?.product?.productName,
-                                  image: item?.product?.image,
-                                  description: item?.product?.description,
-                                  salesPrice: item?.product?.salesPrice,
-                                })
-                              }
-                              className="flex items-center bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors duration-300"
-                            >
-                              <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-                              <span>Add</span>
-                            </button>
-                          </div>
+            {isLoading ? (
+              // Loader Grid
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {[1, 2, 3, 4, 5, 6].map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#1d1d1d] rounded-xl p-4 shadow-lg animate-pulse"
+                  >
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="h-32 w-32 rounded-full bg-gray-700"></div>
+                      <div className="flex-1 space-y-4 w-full text-center sm:text-left">
+                        <div className="h-4 bg-gray-700 rounded-full w-3/4"></div>
+                        <div className="h-4 bg-gray-700 rounded-full w-1/2"></div>
+                        <div className="flex gap-3 justify-center sm:justify-start">
+                          <div className="h-8 bg-gray-700 rounded-lg w-20"></div>
+                          <div className="h-8 bg-gray-700 rounded-lg w-20"></div>
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
+            ) : (
+              // Product Grid
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {data?.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#1d1d1d] rounded-xl p-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/20"
+                    title={item?.product?.productName}
+                  >
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <div className="relative">
+                        <Image
+                          width={128}
+                          height={128}
+                          src={BASE_URL + item?.product?.image}
+                          alt={item?.product?.productName}
+                          className="h-32 w-32 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        />
+                        <div className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                          OFFER
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1 space-y-3 text-center sm:text-left">
+                        <Link 
+                          href={`/products/${item?.product?.slug}`}
+                          className="block hover:text-red-500 transition-colors duration-300"
+                        >
+                          <h2 className="text-lg md:text-xl text-white font-medium line-clamp-2">
+                            {item?.product?.productName}
+                          </h2>
+                        </Link>
+                        
+                        <div className="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
+                          <del className="text-gray-400 text-sm md:text-base">
+                            ৳{item?.product?.salesPrice}
+                          </del>
+                          <span className="text-red-500 text-lg md:text-xl font-semibold">
+                            ৳{item?.offerPrice}
+                          </span>
+                        </div>
+                        
+                        <button
+                          onClick={() =>
+                            addToCart({
+                              id: item?.product?.id,
+                              price: item?.offerPrice,
+                              productName: item?.product?.productName,
+                              image: item?.product?.image,
+                              description: item?.product?.description,
+                              salesPrice: item?.product?.salesPrice,
+                            })
+                          }
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2.5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base"
+                        >
+                          <FontAwesomeIcon icon={faShoppingCart} className="text-lg" />
+                          <span>Add to Cart</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
-        </div>
-
+          </div>
+        </section>
       )
     }
     </>
