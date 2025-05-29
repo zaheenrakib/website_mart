@@ -13,6 +13,7 @@ import {
   faShoppingCart,
   faArrowRight,
   faClock,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import DailyDealsLoader from "./loader/DailyDealsLoader";
 
@@ -20,7 +21,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const DailyDeals = () => {
   const { data: dailyDeals, isLoading } = useGetDailyDeals();
-  const { addToCart } = useContext(UserContext);
+  const { addToCart, addToWishlist } = useContext(UserContext);
 
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
@@ -66,7 +67,7 @@ const DailyDeals = () => {
   }
 
   return (
-    <div className="container mx-auto bg-[#2A2A2A]">
+    <div className="container mx-auto">
       <div className="bg-gradient-to-r from-red-700 to-red-500 py-8 px-4 md:px-8 rounded-3xl mx-4 my-8 shadow-2xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
@@ -125,6 +126,23 @@ const DailyDeals = () => {
                   <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-sm">
                     {item.quantity} left
                   </div>
+                  <button
+                    onClick={() => 
+                      addToWishlist({
+                              id: item.id,
+                              price: item.price,
+                              productName: item?.product?.productName,
+                              image: item?.product?.image,
+                              description: item?.product?.description,
+                            })}
+                    className="absolute top-2 left-2 bg-black/50 p-2 rounded-full transition-colors duration-300 backdrop-blur-sm"
+                    title="Add to wishlist"
+                  >
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      className="text-red-600 hover:text-red-500 transition-colors duration-300"
+                    />
+                  </button>
                 </div>
 
                 <div className="p-4">

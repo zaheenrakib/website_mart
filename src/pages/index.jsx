@@ -10,7 +10,7 @@ import TrendingProducts from "../components/TrendingProducts";
 
 export default function Home() {
   return (  
-    <div className="rac_main_wrapper">
+    <div className="bg-[#2A2A2A]">
       <Banner />
       <TrendingProducts />
       <DailyDeals />
