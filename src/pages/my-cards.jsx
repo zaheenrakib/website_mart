@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 import ProtectedRoute from "../components/ProtectedRoute"
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
-import { MdOutlinePayment } from "react-icons/md";
 
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
