@@ -11,7 +11,7 @@ const Banner_Video = () => {
 
             <div className="relative w-full sm:w-4/5 lg:w-2/3 text-left space-y-3 sm:space-y-4 z-10">
               <h1 className="text-lg sm:text-xl lg:text-2xl text-white font-bold">
-                Discover Premium Club Items
+              Discover Premium Items
               </h1>
               <p className="text-xs sm:text-sm lg:text-base text-white/80">
                 Explore our exclusive collection of high-quality sports

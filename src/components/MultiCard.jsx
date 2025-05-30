@@ -3,16 +3,15 @@ import { UserContext } from "../context/UseContext";
 import Link from "next/link";
 import Image from "next/image";
 import { useProducts } from "../context/api";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRatings from "react-star-ratings";
  
 
-
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const MultiCard = ({ selectedCategories, searchQuery }) => {
-  const { addToCart } = useContext(UserContext);
+  const { addToCart, addToWishlist } = useContext(UserContext);
   const { data: products } = useProducts();
 
   console.log(products);
@@ -31,8 +30,22 @@ const MultiCard = ({ selectedCategories, searchQuery }) => {
         <div
           title={item.productName}
           key={item.id}
-          className="bg-[#292929] rounded-lg overflow-hidden w-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-[#292929] rounded-lg overflow-hidden w-full shadow-lg hover:shadow-xl transition-all duration-300 relative group"
         >
+          {/* Wishlist Icon - Top Right */}
+          <button
+            onClick={() =>addToWishlist({
+                    id: item.id,
+                    price: item.salesPrice,
+                    productName: item.productName,
+                    image: item.image,
+                    description: item.title,
+                  })}
+            className="absolute top-2 right-2 z-10 bg-black/60 hover:bg-red-600 text-white p-2 rounded-full transition-all duration-300"
+            title="Add to wishlist"
+          >
+            <FontAwesomeIcon icon={faHeart} className="text-sm" />
+          </button>
 
           <Link href={`/products/${item.slug}`}>
             <Image
@@ -43,7 +56,7 @@ const MultiCard = ({ selectedCategories, searchQuery }) => {
               className="w-full aspect-[4/3] object-cover"
             />
           </Link>
-
+          
           <div className="px-3 py-2">
             <Link href={`/products/${item.slug}`}>
               <p 
@@ -98,7 +111,9 @@ const MultiCard = ({ selectedCategories, searchQuery }) => {
                     starDimension="20px"
                     starSpacing="2px"
                   />
-                  ({item?.ratingCount})
+                  <span className="text-gray-400 text-sm">
+                    ({item?.ratingCount})
+                  </span>
                 </>
               ):(" ")}
             </div>

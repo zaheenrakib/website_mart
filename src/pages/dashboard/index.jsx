@@ -96,23 +96,6 @@ const Dashboard = () => {
                           My Bookings
                         </Link>
                       </li>
-                      <li onClick={() => handelbtn(5)}>
-                        <Link
-                          href="#membercontacts"
-                          className={`inline-flex items-center px-4 py-3 text-white rounded-lg w-full ${
-                            activediv === 5
-                              ? "bg-[#ee2e2e]"
-                              : "bg-[rgba(131,130,130,0.13)]"
-                          }`}
-                          aria-current="page"
-                        >
-                          <FontAwesomeIcon
-                            icon={faAddressBook}
-                            className="w-4 h-4 me-2 text-white"
-                          />
-                          Member Contacts
-                        </Link>
-                      </li>
                     </ul>
 
                     <div class="p-3  text-medium text-white dark:text-gray-400  rounded-lg w-full">
@@ -132,7 +115,6 @@ const Dashboard = () => {
                           )}
                           {activediv === 3 && <MyProfile />}
                           {activediv === 4 && <BookingOrders />}
-                          {activediv === 5 && <MemberContacts memberData = {data}/>}
                         </div>
                       </div>
                     </div>

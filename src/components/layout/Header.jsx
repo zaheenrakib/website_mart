@@ -1,7 +1,6 @@
-import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faBars, faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faBars, faCircleUser, faHeart } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { UserContext } from "../../context/UseContext";
@@ -15,7 +14,7 @@ const CartDrawer = dynamic(() => import('./CartDrawer'),{ssr: false});
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Header = () => {
-  const { cart } = useContext(UserContext);
+  const { cart,wishList } = useContext(UserContext);
   const [hasMounted, setHasMounted] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const router = useRouter();
@@ -26,6 +25,9 @@ const Header = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  // Static wishlist count for design purposes
+  const wishlistCount = 3;
 
   useEffect(() => {
     setHasMounted(true);
@@ -210,6 +212,19 @@ const Header = () => {
                           </Link>
                         </li>
                       )}
+                      <li>
+                        <Link 
+                          href={'/wishList'}
+                          className="flex items-center cursor-pointer"
+                        >
+                          <FontAwesomeIcon icon={faHeart} className="text-2xl text-white hover:text-red-500 transition-colors" />
+                          {hasMounted && wishlistCount > 0 && (
+                            <span className="text-white h-5 w-5 rounded-full bg-red-600 text-sm flex justify-center items-center relative -top-3 -left-2">
+                              {wishList.length}
+                            </span>
+                          )}
+                        </Link>
+                      </li>
                       <li
                         className="flex items-center md:-mr-12 cursor-pointer"
                         onClick={() => setIsCartOpen(!isCartOpen)}
@@ -222,6 +237,7 @@ const Header = () => {
                         )}
                       </li>
                       <li>  
+
                         <button
                           className="rac_toggle_btn"
                           onClick={toggleNav}
@@ -234,6 +250,7 @@ const Header = () => {
                           />
                           
                         </button>
+
                       </li>
                     </ul>
                   </div>
