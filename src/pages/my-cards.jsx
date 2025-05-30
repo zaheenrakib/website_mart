@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-import ProtectedRoute from "../components/ProtectedRoutes"
+import ProtectedRoute from "../components/ProtectedRoute"
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 import { MdOutlinePayment } from "react-icons/md";
