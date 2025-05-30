@@ -23,7 +23,7 @@ export default function InitialLoader() {
     return (
         <div className="fixed inset-0 bg-[#050505] flex items-center justify-center z-[9999999] transition-opacity duration-300">
         <Image
-            src="/assets/images/UMCL_logo.png"
+            src="/assets/images/anik-logo.jpg"
             alt="UMCL Logo"
             width={200}
             height={200}

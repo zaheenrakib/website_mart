@@ -2,7 +2,6 @@ import { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { notifyError, notifySuccess } from "../utils/toast";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const AuthContext = createContext();
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -11,75 +10,124 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const axiosPublic = useAxiosPublic();
-  const { returnUrl } = router.query; // Get the returned URL from the query parameters
+  const { returnUrl } = router.query;
 
   // Load user & token from localStorage on app start
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    const storedToken = localStorage.getItem("token");
+    try {
+      const storedUser = localStorage.getItem("user");
+      const storedToken = localStorage.getItem("token");
 
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+      // ✅ Check if storedUser exists and is not "undefined" string
+      if (storedUser && storedUser !== "undefined" && storedUser !== "null") {
+        try {
+          const parsedUser = JSON.parse(storedUser);
+          setUser(parsedUser);
+        } catch (parseError) {
+          console.error("Error parsing stored user:", parseError);
+          // Clear invalid data
+          localStorage.removeItem("user");
+        }
+      }
 
-    if (storedToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
+      // ✅ Check if storedToken exists and is valid
+      if (storedToken && storedToken !== "undefined" && storedToken !== "null") {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
+      }
+    } catch (error) {
+      console.error("Error loading auth data from localStorage:", error);
+      // Clear potentially corrupted data
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false); // Set loading to false after checking localStorage
   }, []);
-
 
   // Login function
   const login = async (userData) => {
     try {
-      setLoading(true); // Set loading to true while logging in
-      const response = await axiosPublic.post(`/membership-requests/login-member`, userData);
-      const loggedInUser = response.data.member;
+      setLoading(true);
+
+      const response = await axios.post(`${BASE_URL}/users/login`, userData, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const loggedInUser = response.data.user;
       const loggedToken = response.data.token;
+
       if (!loggedToken) {
         throw new Error("No token received from server");
       }
+
       setUser(loggedInUser);
-      localStorage.setItem("user", JSON.stringify(loggedInUser));
-      localStorage.setItem("token", loggedToken);
+      
+      // ✅ Safely store data with error handling
+      try {
+        localStorage.setItem("user", JSON.stringify(loggedInUser));
+        localStorage.setItem("token", loggedToken);
+      } catch (storageError) {
+        console.error("Error saving to localStorage:", storageError);
+        // Continue without localStorage if it fails
+      }
+      
       axios.defaults.headers.common["Authorization"] = `Bearer ${loggedToken}`;
-      notifySuccess("Login successful!"); // Notify user of successful login
+
+      notifySuccess("Login Successful!");
+
       if (returnUrl) {
-        router.push(returnUrl); // Redirect to the return URL if available
+        router.push(returnUrl);
       } else {
         router.push("/");
-      } // Redirect to home page if no return URL is provided
-    } catch (error) {
-      // Handle login error
-      setLoading(false); // Set loading to false on error
-      if (error.response && error.response.status === 401) {
-        notifyError("Invalid credentials! Please try again."); // Notify user of invalid credentials{
-      }else{
-        notifyError("An error occurred during login. Please try again."); // Notify user of general error
       }
-    }
-    finally {
-      setLoading(false); // Set loading to false after login attempt
+    } catch (error) {
+      notifyError(error?.response?.data?.message || "Login Failed!");
+    } finally {
+      setLoading(false);
     }
   };
 
   // Logout function
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
-    localStorage.removeItem("token"); // Remove token from storage
+    
+    // ✅ Safely remove items from localStorage
+    try {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+    } catch (error) {
+      console.error("Error removing items from localStorage:", error);
+    }
+    
     delete axios.defaults.headers.common["Authorization"];
     router.push("/");
-    notifySuccess("Logout successful!"); // Notify user of successful logout
+    notifySuccess("Logout Successful!");
+  };
+
+  // ✅ Helper function to check if user is authenticated
+  const isAuthenticated = () => {
+    return user !== null && user !== undefined;
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading, setUser }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      login, 
+      logout, 
+      loading, 
+      setUser,
+      isAuthenticated 
+    }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Custom hook to access auth context
-export const useAuth = () => useContext(AuthContext);
+// Custom hook
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};

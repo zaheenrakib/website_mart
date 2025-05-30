@@ -128,8 +128,8 @@ const Header = () => {
                     <Image
                       height={200}
                       width={100}
-                      src="/assets/images/UMCL_logo.png"
-                      className="img-fluid w-[48px] md:w-[68px] "
+                      src="/assets/images/anik-logo.jpg"
+                      className="img-fluid w-[48px] md:w-[55px] "
                       alt="Logo"
                     />
                   </Link>
@@ -205,10 +205,10 @@ const Header = () => {
                             Sign In
                           </Link>
                           <Link
-                            href="/membership"
+                            href="/signup"
                             className="text-white md:py-1.5 md:px-3 rounded bg-[#292929] hover:bg-[#3a3a3a] border border-red-600"
                           >
-                            Register
+                            Sign up
                           </Link>
                         </li>
                       )}
