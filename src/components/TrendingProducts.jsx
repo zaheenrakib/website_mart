@@ -12,7 +12,6 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const TrendingProducts = () => {
   const { data, isLoading} = useGetData("/slider-image", "sliderImage");
-  console.log(data);
 
   if (isLoading) {
     return (

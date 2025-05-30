@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import useGetData from "../hooks/useGetData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../context/UseContext";
 import { useRouter } from "next/router";
 
@@ -87,6 +87,16 @@ const FoodMenu = () => {
                                     className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                                     onClick={() => handleProductClick(product)}
                                   />
+                                  <button
+                                    onClick={() => console.log('Added to wishlist:', product.id)}
+                                    className="absolute top-2 right-2 bg-black/50 hover:bg-black/50 p-2 rounded-full transition-all duration-300 backdrop-blur-sm group/heart"
+                                    title="Add to wishlist"
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faHeart}
+                                      className="text-red-600 transition-colors duration-300 group-hover/heart:scale-110"
+                                    />
+                                  </button>
                                 </div>
 
                                 <div className="flex-1">
@@ -140,6 +150,15 @@ const FoodMenu = () => {
                                     className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                                     onClick={() => handleProductClick(product)}
                                   />
+                                  <button
+                                    onClick={() => console.log('Added to wishlist:', product.id)}
+                                    className="absolute top-2 right-2 bg-black/30 hover:bg-black/50 p-2 rounded-full transition-all duration-300 backdrop-blur-sm group/heart"
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faHeart}
+                                      className="text-white hover:text-red-500 transition-colors duration-300 group-hover/heart:scale-110"
+                                    />
+                                  </button>
                                 </div>
 
                                 <div className="flex-1">
