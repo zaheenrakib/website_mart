@@ -7,7 +7,7 @@ import { useState } from "react";
 import MyProfile from "../../components/MyProfile";
 import MyOrder from "../../components/MyOrder";
 // import Settings from "../components/Settings";
-import Contacts from "../../components/Contacts";
+import Contacts from "../../components/contacts";
 import ProfileView from "../../components/ProfileView";
 import Link from "next/link";
 import ProtectedRoute from "../../components/ProtectedRoute";
