@@ -128,8 +128,8 @@ const Header = () => {
                     <Image
                       height={200}
                       width={100}
-                      src="/assets/images/anik-logo.jpg"
-                      className="img-fluid w-[48px] md:w-[55px] "
+                      src="/assets/images/logo1.png"
+                      className="img-fluid w-[65px] md:w-[65px] rounded-full "
                       alt="Logo"
                     />
                   </Link>

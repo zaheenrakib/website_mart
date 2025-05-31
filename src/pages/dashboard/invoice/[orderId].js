@@ -1,14 +1,12 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Layout from "../../../components/layout/Layout";
 import { useAuth } from "../../../context/authContext";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPrint, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import {  faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import PageBanner from "../../../components/PageBanner";
-import { Button } from "@mui/material";
 import Image from "next/image";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -45,9 +43,9 @@ export default function OrderInvoicePage() {
     }
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
+  // const handlePrint = () => {
+  //   window.print();
+  // };
 
   if (loading) {
     return (

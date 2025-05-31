@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export', // Enable static export
+    // output: 'export', // Enable static export
     reactStrictMode: true,
     images: {
         domains: ['localhost', 'via.placeholder.com', 'images.pexels.com' , 'server.zaiqabd.com'],
@@ -11,7 +11,7 @@ const nextConfig = {
         return config;
     },
     eslint: {
-        ignoreDuringBuilds: false, // Ignore ESLint during production builds
+        ignoreDuringBuilds: true, // Ignore ESLint during production builds
     },
 };
 

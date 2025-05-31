@@ -6,9 +6,10 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import MyProfile from "../components/MyProfile";
 import MyOrder from "../components/MyOrder";
-import Contacts from "../components/Contacts";
+import Contacts from "../components/contacts";
 import ProfileView from "../components/ProfileView";
 import Link from "next/link";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const myOrders = () => {
   const [activediv, setactivediv] = useState(1);

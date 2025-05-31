@@ -1,5 +1,3 @@
-import React from 'react'
-import Layout from '../../components/layout/Layout'
 import PageBanner from '../../components/PageBanner'
 import MyProfile from '../../components/MyProfile'
 

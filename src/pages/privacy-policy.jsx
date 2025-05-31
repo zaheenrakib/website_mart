@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Layout from "../components/layout/Layout";
 import PageBanner from "../components/PageBanner";
 
 const privecyPolicy = () => {

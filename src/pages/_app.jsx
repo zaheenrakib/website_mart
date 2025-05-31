@@ -31,9 +31,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta charSet="utf-8" />
+        <title>Miraz Mart</title>
+        <link rel="icon" className="rounded-full" href="/assets/images/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Your site description" />
-        {/* Add more meta tags as necessary */}
+        {/* Add more meta tags as necessary */}ca
       </Head>
 
       {/* Wrapping the app with necessary context providers */}

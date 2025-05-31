@@ -4,7 +4,6 @@ import PageBanner from "../components/PageBanner";
 import { UserContext } from "../context/UseContext";
 import CardLarge from "../components/CardLarge";
 import CardSmall from "../components/CardSmall";
-import Image from "next/image";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -20,7 +19,7 @@ export default function MyCards() {
   const [shippingFee, setShippingFee] = useState(60);
   const [location, setLocation] = useState("inside");
   const { user } = useAuth();
-  const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
+  // const [paymentMethod, setPaymentMethod] = useState("cashOnDelivery");
   const [selectedItems, setSelectedItems] = useState([]);
   
   const [quantities, setQuantities] = useState(
@@ -61,9 +60,9 @@ export default function MyCards() {
     setQuantities({});
   };
 
-  const handlePaymentMethodChange = (method) => {
-    setPaymentMethod(method);
-  };
+  // const handlePaymentMethodChange = (method) => {
+  //   setPaymentMethod(method);
+  // };
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       name: user?.fullName|| "",

@@ -20,7 +20,7 @@ const BookUs = () => {
   const [northDhaka, setNorthDhaka] = useState(true);
   const [southDhaka, setSouthDhaka] = useState(false);
   const { data } = useGetDatas("/events/all", "events");
-  const { data:Place } = useGetDatas("/city-place", "city-place");
+  // const { data:Place } = useGetDatas("/city-place", "city-place");
   const { user } = useAuth();
 
 
