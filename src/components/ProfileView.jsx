@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useAuth } from "../context/authContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";

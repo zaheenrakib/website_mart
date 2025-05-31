@@ -23,11 +23,11 @@ export default function InitialLoader() {
     return (
         <div className="fixed inset-0 bg-[#050505] flex items-center justify-center z-[9999999] transition-opacity duration-300">
         <Image
-            src="/assets/images/anik-logo.jpg"
-            alt="UMCL Logo"
+            src="/assets/images/logo1.png"
+            alt="Logo"
             width={200}
             height={200}
-            className={`transform transition-transform duration-1000 ease-in-out ${
+            className={`transform transition-transform duration-1000 rounded-full ease-in-out ${
             scaleUp ? "scale-125 opacity-100" : "scale-50 opacity-0"
             }`}
         />

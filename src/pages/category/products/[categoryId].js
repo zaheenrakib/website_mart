@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Layout from "../../../components/layout/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
@@ -36,7 +35,7 @@ const CategoryProducts = () => {
       setProducts(response.data);
       setError(null);
     } catch (error) {
-      setError("No products found in this category");
+      setError("No products found in this category", error);
       setProducts([]);
     } finally {
       setLoading(false);

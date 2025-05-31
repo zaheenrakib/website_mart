@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { notifyError } from "../utils/toast";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,7 +36,6 @@ const Signin = () => {
       }
     } catch (error) {
       // notifyError(error?.response?.data?.message || "Login Failed!");
-      console.log(error)
     } finally {
       setLoading(false);
     }

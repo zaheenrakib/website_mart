@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useGetBannerImages } from "../../context/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";

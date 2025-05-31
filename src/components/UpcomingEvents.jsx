@@ -9,6 +9,7 @@ const UpcomingEvents = ({filteredEvents, openEventDetails}) => {
             return format(date, 'MMMM d, yyyy • h:mm aaa');
         } catch (error) {
             return dateString;
+            console.log(error)
         }
     };
     

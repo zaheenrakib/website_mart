@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShoppingCart, faTrash, faEye, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShoppingCart, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import StarRatings from "react-star-ratings";
 import { useContext } from 'react';
@@ -15,14 +14,14 @@ const WishListDrawer = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || '';
 
   // Function to add all items to cart
-  const addAllToCart = () => {
-    wishList.forEach(item => {
-      // Check if item is in stock before adding to cart
-      if (item.inStock !== false) {
-        addToCart(item);
-      }
-    });
-  };
+  // const addAllToCart = () => {
+  //   wishList.forEach(item => {
+  //     // Check if item is in stock before adding to cart
+  //     if (item.inStock !== false) {
+  //       addToCart(item);
+  //     }
+  //   });
+  // };
 
   // Function to remove single item from wishlist
   const handleRemoveFromWishlist = (itemId) => {
@@ -32,11 +31,11 @@ const WishListDrawer = () => {
   };
 
   // Function to clear all wishlist items
-  const handleClearWishlist = () => {
-    if (clearWishlist) {
-      clearWishlist();
-    }
-  };
+  // const handleClearWishlist = () => {
+  //   if (clearWishlist) {
+  //     clearWishlist();
+  //   }
+  // };
 
   // Function to add single item to cart
   const handleAddToCart = (item) => {
@@ -46,10 +45,10 @@ const WishListDrawer = () => {
   };
 
   // Debug function for Start Shopping button
-  const handleStartShopping = () => {
-    console.log('Start Shopping clicked');
-    router.push('/products');
-  };
+  // const handleStartShopping = () => {
+  //   console.log('Start Shopping clicked');
+  //   router.push('/products');
+  // };
 
   return (
     <>
