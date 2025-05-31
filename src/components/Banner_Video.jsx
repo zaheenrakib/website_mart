@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner_Video = () => {
   return (
-    <div className="px-2 sm:px-4 lg:px-0 pt-4 sm:py-6 lg:py-8">
+    <div className="px-2 sm:px-4 lg:px-0 pt-4 sm:py-6 mt-12">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-stretch gap-4 sm:gap-6 lg:gap-8">
           {/* left card content  */}
@@ -19,7 +19,7 @@ const Banner_Video = () => {
                 Everything you need to enhance your club experience.
               </p>
               <button className="w-full sm:w-auto bg-red-600 border-2 text-slate-50 font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl hover:bg-[#E17564] hover:text-black transition duration-300 text-xs sm:text-sm lg:text-base">
-                View Collection
+                Start Shopping now 
               </button>
             </div>
           </div>

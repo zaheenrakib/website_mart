@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { notifyError } from "../utils/toast";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +23,7 @@ const Signin = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     const userData = {
-      identifier: data.identifier,
+      email: data.email,
       password: data.password,
     };
 
@@ -36,26 +37,23 @@ const Signin = () => {
       }
     } catch (error) {
       // notifyError(error?.response?.data?.message || "Login Failed!");
-      console.log(error);
+      console.log(error)
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    
+    <>
       <div className="rac_main_wrapper flex flex-col">
-        <PageBanner
-          pageTitle={`Sign In`}
-          parents={{
-            title: "Home",
-            link: "/",
-          }}
-        />
+      <PageBanner
+        pageTitle={`Sign In`}
+        bannerImage ={'bg-[url("https://images.pexels.com/photos/2882566/pexels-photo-2882566.jpeg")]'}
+      />
         <div className="rac_about_wrapper m-3 flex-1 flex items-center justify-center">
           <div className="rac_about_content w-full max-w-screen-md rounded-lg shadow-md">
             <div className="rac_about_box px-4 py-3">
-              <h2 className="text-3xl font-bold py-2 text-center">Log In</h2>
+            <h2 className="text-3xl font-bold py-2 text-center">Log In</h2>
               <p className="text-center text-gray-500 mb-4">
                 Welcome back! Please enter your credentials to continue.
               </p>
@@ -69,7 +67,7 @@ const Signin = () => {
                       width={100}
                       height={100}
                       className="w-[50px]"
-                      src="/assets/images/UMCL_logo.png"
+                      src="/assets/images/ZAiqa-logo.png"
                       alt="ZAIQA Logo"
                     />
                     <h1 className="text-2xl px-2 font-bold">ZAIQA</h1>
@@ -82,13 +80,13 @@ const Signin = () => {
                   {/* Form Section */}
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <input
-                      type="text"
-                      {...register("identifier", { required: "Email or MemberID is required" })}
+                      type="email"
+                      {...register("email", { required: "Email is required" })}
                       className="bg-[rgba(131,130,130,0.13)] w-full px-2 py-2 text-white rounded-lg focus:ring-2 focus:ring-[#ee2e2e]"
-                      placeholder="Email or MemberID"
+                      placeholder="Email"
                     />
-                    {errors.identifier && (
-                      <p className="text-red-500">{errors.identifier.message}</p>
+                    {errors.email && (
+                      <p className="text-red-500">{errors.email.message}</p>
                     )}
 
                     <input
@@ -104,8 +102,10 @@ const Signin = () => {
                     )}
 
                     <div className="flex justify-between text-sm text-white">
-                      Don't have an account?{" "}
-                      <Link href="/membership" className="text-red-600 font-bold italic">Request for Membership</Link>
+                      <Link href="/forget-page" className="text-[#ee2e2e]">
+                        Forgot Password?
+                      </Link>
+                      <Link href="/signup">Or Create an Account?</Link>
                     </div>
 
                     <div className="rac_banner_btn mb-2">
@@ -118,14 +118,10 @@ const Signin = () => {
                       </button>
                     </div>
 
-                    <div className="mt-4 mb-2">
-
-                      <Link href="/" className="border-1 border-solid border-red-600 text-red-600 hover:bg-red-600 hover:text-zinc-50 px-3 py-2  text-sm rounded-lg ">
-                        <FontAwesomeIcon className="pr-2" icon={faLessThan} />{" "}
-                        Back to Home
-                      </Link>
-                    </div>
-
+                    <Link href="/" className="text-white">
+                      <FontAwesomeIcon className="pr-2" icon={faLessThan} />{" "}
+                      Back to Home
+                    </Link>
                   </form>
                 </div>
 
@@ -141,7 +137,7 @@ const Signin = () => {
           </div>
         </div>
       </div>
-    
+    </>
   );
 };
 

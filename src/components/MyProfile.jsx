@@ -4,16 +4,20 @@ import axios from "axios";
 import Image from "next/image";
 import { useAuth } from "../context/authContext";
 import { notifySuccess } from "../utils/toast";
+import { useRouter } from "next/router";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 const MyProfile = () => {
-  const { user , loading } = useAuth();
+  const { user , setUser } = useAuth();
   const { register, handleSubmit, setValue } = useForm();
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [message, setMessage] = useState("");
-  const imageUrl = BASE_URL + user?.profileImage;
+  const imageUrl = user?.image ? BASE_URL + user.image : "/assets/images/user.png";
+  const [loading , setLoading] = useState(false);
+
+  const router = useRouter();
 
   // Pre-fill form with user data
   useEffect(() => {
@@ -34,42 +38,42 @@ const MyProfile = () => {
   // Upload image
   const uploadImage = async () => {
     if (!file) return null;
-
     const formData = new FormData();
     formData.append("image", file);
-
     try {
       const res = await axios.post(`${BASE_URL}/images/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       return res.data.imageUrl;
     } catch (error) {
-      console.error("Image upload failed:", error);
-      setMessage("Image upload failed.");
+      setMessage("Image upload failed." + error);
       return null;
     }
   };
 
   // Update profile
   const onSubmit = async (data) => {
+    setLoading(true)
     const uploadedImageUrl = await uploadImage();
     const updatedData = { ...data, image: uploadedImageUrl || imageUrl };
-
     try {
-     const res = await axios.put(`${BASE_URL}/users/update-profile/${user?.id}`, updatedData);
-     if(res.status === 200){
-      return notifySuccess("Profile updated successfully!")
-     }
-      
+      const res = await axios.put(`${BASE_URL}/users/update-profile/${user?.id}`, updatedData);
+      if (res.status === 200) {
+        const updatedUser = res.data.updatedUser;
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        setUser(updatedUser); // if you're using context
+        notifySuccess("Profile updated successfully!");
+        router.push("/dashboard");
+      }
     } catch (error) {
-      console.error("Profile update failed:", error);
-      setMessage("Profile update failed.");
+      setMessage("Profile update failed." + error);
+    }finally {
+      setLoading(false)
     }
   };
-
-  if(loading){
+  if(loading) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
+      <div className="flex justify-center items-center min-h-screen">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
       </div>
     );
@@ -84,16 +88,16 @@ const MyProfile = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                   <label className="block font-semibold mb-1 text-[#ee2e2e]">First Name</label>
-                  <input {...register("fullName")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
+                  <input {...register("name")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
                 </div>
                 <div>
                   <label className="block font-semibold mb-1 text-[#ee2e2e]">Contact Number</label>
-                  <input {...register("mobile")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
+                  <input {...register("phone")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
                 </div>
               </div>
               <div>
                 <label className="block font-semibold mb-1 text-[#ee2e2e]">Address</label>
-                <input {...register("residentialAddress")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
+                <input {...register("address")} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600 focus:border-[#ee2e2e] focus:outline-none" />
               </div>
               <div>
                 <label className="block font-semibold mb-1 text-[#ee2e2e]">Email</label>
@@ -102,7 +106,7 @@ const MyProfile = () => {
               <div>
                 <label className="block font-semibold mb-1 text-[#ee2e2e]">Profile Image</label>
                 <input type="file" accept="image/*" onChange={handleFileChange} className="w-full p-1.5 rounded-md bg-[#444444] text-white border-gray-600" />
-                {preview && <img src={preview} alt="Preview" width={100} />}
+                {preview && <Image className="h-[200px] w-[200px] mt-2" height={1000} src={preview} alt="Preview" width={1000} />}
               </div>
               <button type="submit" className="px-4 py-1 rounded-md bg-[#ee2e2e] text-white hover:bg-red-700 transition">
                 Update Profile
@@ -113,7 +117,6 @@ const MyProfile = () => {
             <div className="w-[200px] h-[200px] overflow-hidden rounded-xl">
               <Image height={1000} width={1000} src={preview || imageUrl} alt="Profile" className="w-full h-full object-cover" />
             </div>
-            
           </div>
         </div>
       </div>
