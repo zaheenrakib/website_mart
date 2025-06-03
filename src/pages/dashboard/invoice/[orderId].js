@@ -98,7 +98,7 @@ export default function OrderInvoicePage() {
               <Image
                 height={200}
                 width={100}
-                src="/assets/images/UMCL_logo.png"
+                src="/assets/images/logo1.png"
                 className="img-fluid w-[70px]"
                 alt="Logo"
               />
@@ -109,7 +109,7 @@ export default function OrderInvoicePage() {
             </div>
             <div className="flex flex-col md:flex-row justify-between  border-b border-gray-200 pb-4">
               <div className=" md:text-left mt-4 md:mt-0">
-                <div className="font-bold text-xl">UMCL</div>
+                <div className="font-bold text-xl">Miraz-Mart</div>
                 <div className="text-sm mt-2">
                   <p className="text-gray-600">
                     <span className="font-bold"> Address:</span> Plot # 6, Road
@@ -119,7 +119,7 @@ export default function OrderInvoicePage() {
                     Uttara Dhaka 1230, Dhaka, Bangladesh
                   </p>
                   <p className="text-gray-600">
-                    <span className="font-bold"> Email:</span> info@umcl.com
+                    <span className="font-bold"> Email:</span> info@mirazmart.com
                   </p>
                   <p className="text-gray-600">
                     <span className="font-bold"> Phone:</span> +880 1956693379
