@@ -13,7 +13,7 @@ export default function Home() {
   return (  
     <div className="bg-[#2A2A2A]">
       <Banner />
-      <TrendingProducts />
+{/*       <TrendingProducts /> */}
       {/* <PageBannerShop /> */}
       <Slider />
       <DailyDeals />
