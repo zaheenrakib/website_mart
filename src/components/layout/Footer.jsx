@@ -88,7 +88,7 @@ const Footer = () => {
                             <li>
                               <Link
                                 target="_blank"
-                                href="https://www.facebook.com/uttaramodelclublimited"
+                                href="https://www.facebook.com/mirazmart?mibextid=eHce3h"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +147,7 @@ const Footer = () => {
                                   </svg>
                                 </span>
                                 <p>
-                                  Plot # 6, Road # 6/A, Sector # 17/K, Uttara
+                                  Banasree,
                                   Dhaka 1230, Dhaka, Bangladesh
                                 </p>
                               </Link>
@@ -166,10 +166,10 @@ const Footer = () => {
                                 </span>
                                 <div className="flex flex-col">
                                   <Link
-                                    href="tel: +8801956-693379"
+                                    href="tel: +8801716926790"
                                     className="hover:text-red-600 transition-colors duration-300"
                                   >
-                                    +8801956-693379
+                                    +8801716926790
                                   </Link>
                                 </div>
                               </div>
@@ -177,7 +177,7 @@ const Footer = () => {
                             <li>
                               <Link
                                 className="flex items-center gap-2"
-                                href="mailto:info@umcl.club"
+                                href="mailto:info@mirazmart.com"
                               >
                                 <span>
                                   <svg
@@ -192,7 +192,7 @@ const Footer = () => {
                                     />
                                   </svg>
                                 </span>
-                                <p>info@umcl.club</p>
+                                <p>info@mirazmart.com</p>
                               </Link>
                             </li>
                           </ul>
@@ -259,8 +259,8 @@ const Footer = () => {
             <div className="col-12">
               <div className="rac_copyright_text">
                 <p>
-                  Copyright © Uttara Model Club Limited,  <span id="copyYear"></span> Developed by
-                  <Link target="_blank"  href="https://www.datascapeit.com/"> Datascape IT Limited. </Link>
+                  Copyright © Miraz-Mart,  <span id="copyYear"></span> Developed by
+                  <Link target="_blank"  href="https://www.zaheenrakib.com/"> Zaheen Rakib. </Link>
                    All Rights Reserved.
                 </p>
               </div>
