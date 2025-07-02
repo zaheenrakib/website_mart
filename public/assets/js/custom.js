@@ -314,7 +314,7 @@ Project: Restaurant and Catering html
               );
             } else {
               errroTarget.html(
-                '<p style="color:red;">Something went wrong please try again latter.</p>',
+                '<p style="color:re;">Something went wrong please try again latter.</p>',
               );
             }
           });

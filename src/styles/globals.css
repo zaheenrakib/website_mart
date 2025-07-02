@@ -28,7 +28,7 @@ a {
   /* Adjust padding for smaller buttons for increment decrement */
   padding: 0.5rem 0.5rem;
   font-size: 0.75rem;
-  background-color: red;
+  background-color: r;
   color: white;
   border: 1px solid transparent;
   border-radius: 0.2rem;
@@ -64,7 +64,7 @@ a {
 /* Custom Edit Profile Text*/
 .custom-title {
   font-size: 2rem; /* Adjust as necessary */
-  color: red;
+  color: #9cd8d9;
 }
 
 .profile-picture {
@@ -75,7 +75,7 @@ a {
 /* Nirob */
 
 .theme-text {
-  color: red;
+  color: #9cd8d9;
 }
 
 /* Hide large cards on small screens */
