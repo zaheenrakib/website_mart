@@ -18,23 +18,23 @@ const UserSection = () => {
           />
         </div>
 
-        <h1 className="text-2xl font-bold text-center text-[#ee2e2e] py-2">
+        <h1 className="text-2xl font-bold text-center text-[red] py-2">
           {user?.name}
         </h1>
-        <hr className="text-[#ee2e2e] mb-3"></hr>
-        {/* <p className="py-2"><span className="text-[#ee2e2e] ">Name :</span> {"Farhan Shahriar"}</p> */}
+        <hr className="text-[red] mb-3"></hr>
+        {/* <p className="py-2"><span className="text-[red] ">Name :</span> {"Farhan Shahriar"}</p> */}
         <p className="py-2 ">
-          <span className="text-[#ee2e2e] ">Email : </span>
+          <span className="text-[red] ">Email : </span>
           {user?.email}
         </p>
         <p className="py-2">
-          <span className="text-[#ee2e2e]  ">Mobile :</span> {user?.mobile}
+          <span className="text-[red]  ">Mobile :</span> {user?.mobile}
         </p>
         <p className="py-2">
-          <span className="text-[#ee2e2e] ">Address : </span> {user?.residentialAddress}
+          <span className="text-[red] ">Address : </span> {user?.residentialAddress}
         </p>
         <p className="py-2">
-          <span className="text-[#ee2e2e] ">Status : </span> {user?.status}
+          <span className="text-[red] ">Status : </span> {user?.status}
         </p>
       </div>
     </div>

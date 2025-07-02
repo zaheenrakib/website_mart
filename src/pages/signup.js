@@ -73,7 +73,7 @@ const Signup = () => {
                       Sign in
                     </Link>
                   </p>
-                  <hr className="text-[#ee2e2e] my-3" />
+                  <hr className="text-[red] my-3" />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-7">
@@ -101,7 +101,7 @@ const Signup = () => {
                                 "Name must be at most 30 characters long",
                             },
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Name"
                         />
                         {errors?.name && (
@@ -118,7 +118,7 @@ const Signup = () => {
                               message: "Phone number must be 11 digits long",
                             },
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Contact Number"
                         />
 
@@ -140,7 +140,7 @@ const Signup = () => {
                               );
                             },
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Email"
                         />
                         {errors?.email && (
@@ -158,7 +158,7 @@ const Signup = () => {
                                 "Address must be at most 100 characters long",
                             },
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Address"
                         />
                         {errors?.address && (
@@ -182,7 +182,7 @@ const Signup = () => {
                                 "Password must be at most 20 characters long",
                             },
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Password"
                         />
                         {errors?.password && (
@@ -196,7 +196,7 @@ const Signup = () => {
                           {...register("confirmPassword", {
                             required: "Confirm password is required",
                           })}
-                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ee2e2e]"
+                          className="bg-[rgba(131,130,130,0.13)] mt-1 w-full px-2 py-2 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[red]"
                           placeholder="Confirm Password"
                         />
                         {passwordError && (

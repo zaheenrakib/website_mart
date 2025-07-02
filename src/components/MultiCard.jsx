@@ -60,14 +60,14 @@ const MultiCard = ({ selectedCategories, searchQuery }) => {
           <div className="px-3 py-2">
             <Link href={`/products/${item.slug}`}>
               <p 
-              className="text-[#ee2e2e] text-[15px] font-bold my-2 hover:underline truncate"
+              className="text-[red] text-[15px] font-bold my-2 hover:underline truncate"
               title={item.productName}
               >
                 {item.productName}
               </p>
             </Link>
 
-            <div className="border-b-2 border-[#ee2e2e] mb-2" />
+            <div className="border-b-2 border-[red] mb-2" />
 
             <div className="flex justify-between items-center py-2">
               <p className="font-semibold text-[15px] text-white">
@@ -84,7 +84,7 @@ const MultiCard = ({ selectedCategories, searchQuery }) => {
                     description: item.title,
                   })
                 }
-                className="text-sm font-semibold border-1 border-solid border-[#ee2e2e] bg-[#ee2e2e] text-slate-50 hover:text-red-600 hover:bg-[#292929] transition-all px-3 py-2 rounded-lg"
+                className="text-sm font-semibold border-1 border-solid border-[red] bg-[red] text-slate-50 hover:text-red-600 hover:bg-[#292929] transition-all px-3 py-2 rounded-lg"
               >
                 <FontAwesomeIcon icon={faCartShopping} className="mr-1 text-lg" />
               </button>

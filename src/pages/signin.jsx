@@ -55,7 +55,7 @@ const Signin = () => {
               <p className="text-center text-gray-500 mb-4">
                 Welcome back! Please enter your credentials to continue.
               </p>
-              <hr className="text-[#ee2e2e] my-3" />
+              <hr className="text-[red] my-3" />
 
               <div className="grid md:grid-cols-2 gap-7">
                 {/* Left Section */}
@@ -70,17 +70,17 @@ const Signin = () => {
                     />
                     <h1 className="text-2xl px-2 font-bold">ZAIQA</h1>
                   </div> */}
-                  <p className="font-bold text-2xl text-[#ee2e2e] px-1">
+                  <p className="font-bold text-2xl text-[red] px-1">
                     Log In to your Account
                   </p>
-                  <hr className="text-[#ee2e2e] my-3" />
+                  <hr className="text-[red] my-3" />
 
                   {/* Form Section */}
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <input
                       type="email"
                       {...register("email", { required: "Email is required" })}
-                      className="bg-[rgba(131,130,130,0.13)] w-full px-2 py-2 text-white rounded-lg focus:ring-2 focus:ring-[#ee2e2e]"
+                      className="bg-[rgba(131,130,130,0.13)] w-full px-2 py-2 text-white rounded-lg focus:ring-2 focus:ring-[red]"
                       placeholder="Email"
                     />
                     {errors.email && (
@@ -92,7 +92,7 @@ const Signin = () => {
                       {...register("password", {
                         required: "Password is required",
                       })}
-                      className="bg-[rgba(131,130,130,0.13)] w-full px-2 py-2 text-white rounded-lg focus:ring-2 focus:ring-[#ee2e2e]"
+                      className="bg-[rgba(131,130,130,0.13)] w-full px-2 py-2 text-white rounded-lg focus:ring-2 focus:ring-[red]"
                       placeholder="Password"
                     />
                     {errors.password && (
@@ -100,7 +100,7 @@ const Signin = () => {
                     )}
 
                     <div className="flex justify-between text-sm text-white">
-                      <Link href="/forget-page" className="text-[#ee2e2e]">
+                      <Link href="/forget-page" className="text-[red]">
                         Forgot Password?
                       </Link>
                       <Link href="/signup">Or Create an Account?</Link>

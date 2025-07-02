@@ -36,7 +36,7 @@ const Banner = () => {
           <SwiperSlide key={index}>
             <div className="container mx-auto">
               <div className="row align-items-center">
-                <div className="col-lg-6">
+                <div className="col-lg-6 ">
                   <div className="rac_banner_content">
                     <div className="rac_banner_text">
                       {/* <h1>{banner?.title || "Crafting Moments, Not Just Meals."}</h1> */}
@@ -47,7 +47,7 @@ const Banner = () => {
                         {(banner?.title ? banner?.title : "Crafting Moments, Not Just Meals.")
                           .split(" ")
                           .map((word, index, array) => {
-                            if (index === 0 || index === array.length - 1) {
+                            if (index === 0|| index === array.length - 1) {
                               return `${word} `;
                             }
                             return <span key={index}>{word} </span>;

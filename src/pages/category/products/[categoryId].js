@@ -110,11 +110,11 @@ const CategoryProducts = () => {
 
 
               <Link href={`/products/${item.slug}`}>
-                <p className="text-[#ee2e2e] text-xl font-bold px-3 my-2">
+                <p className="text-[red] text-xl font-bold px-3 my-2">
                   {item.productName}
                 </p>
               </Link>
-              <div className="mx-3 border-b-2 border-[#ee2e2e]"></div>
+              <div className="mx-3 border-b-2 border-[red]"></div>
 
 
               <div className="flex justify-between items-center px-3 py-3">
