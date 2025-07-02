@@ -12,7 +12,7 @@ const MemberContacts = ({memberData}) => {
       <h2 className="text-2xl font-bold mb-4">Member Contacts</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left">
-          <thead className="text-xs uppercase bg-[#ee2e2e] text-white">
+          <thead className="text-xs uppercase bg-[red] text-white">
             <tr>
                 <th scope="col" className="px-6 py-3">Name</th>
                 <th scope="col" className="px-6 py-3">Phone</th>

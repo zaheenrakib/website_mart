@@ -200,7 +200,7 @@ const Header = () => {
                         <li className="hidden md:mr-[-18px] md:flex gap-2">
                           <Link
                             href="/signin"
-                            className="text-white md:py-1.5 md:px-3 rounded bg-[#ee2e2e] hover:bg-[#d72626]"
+                            className="text-white md:py-1.5 md:px-3 rounded bg-[red] hover:bg-[#d72626]"
                           >
                             Sign In
                           </Link>
@@ -284,7 +284,7 @@ const Header = () => {
             <Link
               key={index}
               href={menu.link}
-              className={`block p-2 hover:text-[#ee2e2e] ${
+              className={`block p-2 hover:text-[red] ${
                 selectedMenu === menu.link ? "font-bold" : ""
               }`}
               onClick={toggleNav}
@@ -296,7 +296,7 @@ const Header = () => {
             <div className="mt-4 space-y-2">
               <Link
                 href="/signin"
-                className="block text-center py-2 px-4 bg-[#ee2e2e] hover:bg-[#d72626] rounded text-white font-semibold"
+                className="block text-center py-2 px-4 bg-[red] hover:bg-[#d72626] rounded text-white font-semibold"
                 onClick={toggleNav}
               >
                 Sign In

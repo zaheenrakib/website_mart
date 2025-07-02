@@ -35,7 +35,7 @@ const success = () => {
                 <h1 className="text-base sm:text-xl m-2">
                   Thank you for your purchase!
                 </h1>
-                {/* <hr className="border-t border-[#ee2e2e] my-4" /> */}
+                {/* <hr className="border-t border-[red] my-4" /> */}
               </div>
 
               <div className="flex flex-col-2 rac_about_box sm:flex-row  justify-center text-white text-sm sm:text-base mt-6">

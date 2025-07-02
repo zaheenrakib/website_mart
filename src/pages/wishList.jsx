@@ -111,7 +111,7 @@ const WishListDrawer = () => {
                     
                     {/* Quick View Overlay */}
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <button className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-[#ee2e2e]/80 transition-colors">
+                      <button className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-[red]/80 transition-colors">
                         <FontAwesomeIcon icon={faEye} />
                       </button>
                     </div>
@@ -120,13 +120,13 @@ const WishListDrawer = () => {
                   <div className="px-3 py-2">
                     {/* Product Name */}
                     <p 
-                      className="text-[#ee2e2e] text-[15px] font-bold my-2 hover:underline truncate cursor-pointer"
+                      className="text-[red] text-[15px] font-bold my-2 hover:underline truncate cursor-pointer"
                       title={item.productName}
                     >
                       {item.productName}
                     </p>
 
-                    <div className="border-b-2 border-[#ee2e2e] mb-2" />
+                    <div className="border-b-2 border-[red] mb-2" />
 
                     {/* Price Section */}
                     <div className="flex justify-between items-center py-2">
@@ -149,7 +149,7 @@ const WishListDrawer = () => {
                         disabled={item.inStock === false}
                         className={`text-sm font-semibold border-1 border-solid px-3 py-2 rounded-lg transition-all ${
                           item.inStock !== false
-                            ? 'border-[#ee2e2e] bg-[#ee2e2e] text-slate-50 hover:text-red-600 hover:bg-[#292929]'
+                            ? 'border-[red] bg-[red] text-slate-50 hover:text-red-600 hover:bg-[#292929]'
                             : 'border-gray-600 bg-gray-600 text-gray-400 cursor-not-allowed'
                         }`}
                       >

@@ -111,13 +111,13 @@ const ProductDetails = () => {
 
               <div className="">
                 <Link href="/products">
-                  <p className="text-3xl font-semibold rac_about_text px-4 text-[#ee2e2e]">
+                  <p className="text-3xl font-semibold rac_about_text px-4 text-[red]">
                     {slugProduct?.productName}
                   </p>
                 </Link>
-                <hr className="text-[#ee2e2e] border-2 mx-4 my-2"></hr>
+                <hr className="text-[red] border-2 mx-4 my-2"></hr>
                 <p className="text-xl px-4">{slugProduct?.title}</p>
-                <p className="text-2xl px-4 text-[#ee2e2e] font-bold">
+                <p className="text-2xl px-4 text-[red] font-bold">
                   <span className="text-slate-200 font-thin">Price: </span>{" "}
                   {slugProduct?.salesPrice} ৳
                 </p>
@@ -267,10 +267,10 @@ const ProductDetails = () => {
               </div>
 
               <div className="">
-                <div className="max-w-md mx-auto border-[#ee2e2e] rounded-lg">
+                <div className="max-w-md mx-auto border-[red] rounded-lg">
                   <div className="rac_section_heading flex justify-start ml-4">
                     <h3 className="text-2xl">Leave a Review</h3>
-                    <hr className="text-[#ee2e2e] mb-2"></hr>
+                    <hr className="text-[red] mb-2"></hr>
                   </div>
                   {!user ? (
                     <div className="text-center p-4">

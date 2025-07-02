@@ -127,7 +127,7 @@ export default function MyCards() {
         if (res.data?.url || res.status === 200) {
           // toast.success("Payment initiated successfully");
           clearCart();
-          // Redirect to the payment URL
+          // redirect to the payment URL
           // You can use window.location.href or router.push
           window.location.href = res.data.url;
         } else {
@@ -402,11 +402,11 @@ export default function MyCards() {
                         value="cashOnDelivery"
                         checked
                         onChange={handlePaymentMethodChange}
-                        className="form-radio text-[#ee2e2e] focus:ring-[#ee2e2e] h-5 w-5"
+                        className="form-radio text-[red] focus:ring-[red] h-5 w-5"
                       />
                       <label
                         htmlFor="cashOnDelivery"
-                        className="text-[#ee2e2e] font-semibold"
+                        className="text-[red] font-semibold"
                       >
                         Cash on Delivery
                       </label>

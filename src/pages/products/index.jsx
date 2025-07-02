@@ -54,7 +54,7 @@ const Products = () => {
                 </div>
               </div>
 
-              <hr className="text-[#ee2e2e] mt-3 sm:mb-0 mb-2 ml-10" />
+              <hr className="text-[red] mt-3 sm:mb-0 mb-2 ml-10" />
 
 
               {

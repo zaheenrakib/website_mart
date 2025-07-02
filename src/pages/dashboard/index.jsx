@@ -40,7 +40,7 @@ const Dashboard = () => {
                           href="#profile"
                           className={`inline-flex items-center px-4 py-3 text-white rounded-lg w-full ${
                             activediv === 1
-                              ? "bg-[#ee2e2e]"
+                              ? "bg-[red]"
                               : "bg-[rgba(131,130,130,0.13)]"
                           }`}
                           aria-current="page"
@@ -62,7 +62,7 @@ const Dashboard = () => {
                           href="#myOrders"
                           className={`inline-flex items-center px-4 py-3 text-white rounded-lg w-full ${
                             activediv === 2
-                              ? "bg-[#ee2e2e]"
+                              ? "bg-[red]"
                               : "bg-[rgba(131,130,130,0.13)]"
                           }`}
                           aria-current="page"
@@ -79,7 +79,7 @@ const Dashboard = () => {
                           href="#settings"
                           className={`inline-flex items-center px-4 py-3 text-white rounded-lg w-full ${
                             activediv === 3
-                              ? "bg-[#ee2e2e]"
+                              ? "bg-[red]"
                               : "bg-[rgba(131,130,130,0.13)]"
                           }`}
                           aria-current="page"
@@ -101,7 +101,7 @@ const Dashboard = () => {
                           href="#contact"
                           className={`inline-flex items-center px-4 py-3 text-white rounded-lg w-full ${
                             activediv === 4
-                              ? "bg-[#ee2e2e]"
+                              ? "bg-[red]"
                               : "bg-[rgba(131,130,130,0.13)]"
                           }`}
                           aria-current="page"

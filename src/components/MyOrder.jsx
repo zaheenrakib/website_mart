@@ -105,7 +105,7 @@ const MyOrder = () => {
                 <div className="flex justify-end mt-3">
                   <Link
                     href={`/dashboard/invoice/${order.id}`}
-                    className="bg-[#ee2e2e] rounded-md px-3 py-1 text-white text-sm"
+                    className="bg-[red] rounded-md px-3 py-1 text-white text-sm"
                   >
                     View
                   </Link>
@@ -180,7 +180,7 @@ const MyOrder = () => {
                     <td className="px-6 py-4 border-b border-gray-600">
                       <Link
                         href={`/dashboard/invoice/${order.id}`}
-                        className="bg-[#ee2e2e] rounded-md px-3 py-1 text-white"
+                        className="bg-[red] rounded-md px-3 py-1 text-white"
                       >
                         View
                       </Link>
